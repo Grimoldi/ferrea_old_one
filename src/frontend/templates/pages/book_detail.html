@@ -1,0 +1,21 @@
+{% extends "skeleton/menu_enduser.html" %}
+  
+  {% block app %}
+
+
+
+    {% if book is not None %}
+      <div id="show-book-div">
+        
+        {% include "components/list_book_details.html" %}
+        
+        {% include "components/messages.html" %}
+
+        <div class="clear"></div>
+        <h3>Available copies</h3><br />
+        {% include "components/list_available_copies.html" %}
+
+      </div>
+    {% endif %}
+
+  {% endblock %}

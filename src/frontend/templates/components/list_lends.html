@@ -1,0 +1,27 @@
+
+{% url 'frontend:return_book' as return_book %}
+
+{% for book in lend_list.book|dictsort:"barcode" %}
+    <hr style="width:60%; margin-left:0px;" class="clear">
+    <div>
+        <img src="{{ book.cover }}" class="book-cover" style="float:left; margin-right:10px"/>
+        Title: {{ book.title }}<br />
+        Barcode: {{ book.barcode }}<br />
+        Library: {{ book.library_name }}<br />
+        User: {{ book.user_name }} {{ book.user_surname }}<br /><br />
+
+        <div class="book_button" id="return_book">
+            <span>
+                <a 
+                href="{{ return_book }}" 
+                data-barcode="{{ book.barcode }}"
+                data-user="{{ book.username }}"
+                data-method="put"
+                onClick="classInstance.MakeAction.call(classInstance, this); return false;"
+                ></a>
+            </span>
+
+        </div>
+    </div>
+    
+{% endfor %}

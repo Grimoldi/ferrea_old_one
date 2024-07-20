@@ -1,0 +1,9 @@
+{% extends "skeleton/menu_librarian.html" %}
+  
+  {% block app %}
+    <div id="list-lends-div">
+      <h3>List of all books that are currently being read by users</h3>
+      <p>Click on return to mark them as returned to the library.</p>
+      {% include "components/list_lends.html" %}
+    </div>
+  {% endblock %}

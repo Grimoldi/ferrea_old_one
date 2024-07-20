@@ -1,0 +1,13 @@
+{% extends "skeleton/menu_enduser.html" %}
+  
+  {% block app %}
+  {% include "components/messages.html" %}
+  
+  <form action="/perform_edit" method="post">
+    <div id="profile-form-div">
+      {{ form }}
+      <input type="submit" value="Edit">
+    </div>
+  </form>
+
+  {% endblock %}

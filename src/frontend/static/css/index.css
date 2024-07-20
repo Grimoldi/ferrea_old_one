@@ -1,0 +1,256 @@
+@import url("https://fonts.googleapis.com/css?family=Montserrat:600&display=swap");
+
+html,
+body {
+  height: 100%;
+  width: 100%;
+  margin: 0;
+  padding: 0;
+  position: absolute;
+}
+
+#main {
+  width: 100%;
+  height: 100%;
+  margin: 0;
+  padding: 0;
+}
+
+#header {
+  width: 100%;
+  height: 15%;
+  min-height: 50px;
+  background-image: url("../images/header.jpg");
+  background-size: cover;
+  margin: 0;
+  padding: 0;
+}
+
+#contents {
+  overflow: hidden;
+}
+
+#login-form-div {
+  width: 100%;
+  min-height: 70%;
+  height: 70%;
+  float: right;
+  margin: auto;
+  padding: auto;
+  background-color: #d9ddde;
+}
+
+#menu {
+  width: 20%;
+  min-height: 70%;
+  float: left;
+  margin: 0;
+  padding: 0;
+  background-color: #ebe8eb;
+  color: #05668d;
+
+  padding-bottom: 100000%;
+  margin-bottom: -100000%;
+}
+
+#menu ul {
+  list-style: none;
+}
+
+.menu-li-portrait {
+  width: 20px;
+  height: 20px;
+}
+
+#app {
+  width: 80%;
+  min-height: 70%;
+  float: right;
+  margin: 0;
+  padding: 0;
+  background-color: #d9ddde;
+
+  padding-bottom: 100%;
+  margin-bottom: -100%;
+}
+
+#suggested-books table {
+  border-spacing: 10px;
+  border-collapse: separate;
+}
+
+.book-cover {
+  width: 128px;
+  height: 196px;
+}
+
+#footer {
+  min-width: 100%;
+  height: 10%;
+  min-height: 50px;
+  clear: both;
+  background-image: url("../images/footer.jpg");
+  background-size: cover;
+  margin: 0;
+  padding: 0;
+}
+
+.center {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.text-left {
+  text-align: left;
+  margin-left: 10px;
+}
+
+.text-right {
+  text-align: right;
+  margin-right: 10%;
+}
+
+.div-center {
+  margin: auto;
+  float: left;
+  margin-left: 15%;
+}
+
+.clear {
+  clear: both;
+  min-height: 10px;
+}
+
+#menu-ul {
+  height: 200px;
+}
+
+#login-form-div {
+  min-height: 50px;
+}
+
+/*
+  Bottone: https://codepen.io/Anon_satyam/pen/JjXLoNJ
+  Found from: https://freefrontend.com/css-buttons/
+*/
+
+.book_button span {
+  position: relative;
+  display: inline-flex;
+  width: 90px;
+  height: 27px;
+  margin: 0 7.5px;
+  perspective: 500px;
+}
+
+.book_button span a {
+  font-size: 9px;
+  letter-spacing: 1px;
+  transform-style: preserve-3d;
+  transform: translateZ(-50px);
+  transition: transform 0.125s;
+  font-family: "Montserrat", sans-serif;
+}
+
+.book_button span a:before,
+.book_button span a:after {
+  position: absolute;
+  height: 27px;
+  width: 90px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid black;
+  box-sizing: border-box;
+  border-radius: 5px;
+}
+
+.book_button span a:before {
+  color: #05668d;
+  background: #ebe8eb;
+  transform: rotateY(0deg) translateZ(12.5px);
+}
+
+.book_button span a:after {
+  color: #ebe8eb;
+  background: #447588;
+  transform: rotateX(90deg) translateZ(12.5px);
+}
+
+.book_button span a:hover {
+  transform: translateZ(-12.5px) rotateX(-90deg);
+}
+
+.book_button_disabled span {
+  position: relative;
+  display: inline-flex;
+  width: 90px;
+  height: 27px;
+  margin: 0 7.5px;
+  perspective: 500px;
+}
+
+.book_button_disabled span a {
+  font-size: 9px;
+  letter-spacing: 1px;
+  transform-style: preserve-3d;
+  transform: translateZ(-50px);
+  transition: transform 0.125s;
+  font-family: "Montserrat", sans-serif;
+}
+
+.book_button_disabled span a:before,
+.book_button_disabled span a:after {
+  position: absolute;
+  height: 27px;
+  width: 90px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid black;
+  box-sizing: border-box;
+  border-radius: 5px;
+  color: red;
+  background: #ebe8eb;
+}
+
+#reserve_me_button span a:before,
+#reserve_me_button span a:after {
+  content: "RESERVE";
+}
+
+#read_me_button span a:before,
+#read_me_button span a:after {
+  content: "READ";
+}
+
+#detail_me_button span a:before,
+#detail_me_button span a:after {
+  content: "SHOW DETAILS";
+}
+
+#delete_reserve_button span a:before,
+#delete_reserve_button span a:after {
+  content: "CANCEL RESERVATION";
+}
+
+#return_book span a:before,
+#return_book span a:after {
+  content: "RETURN";
+}
+
+.book_status_icon {
+  width: 30px;
+  height: 30px;
+  float: left;
+  margin-right: 5px;
+}
+
+#librarian_home_img {
+  width: 35%;
+  height: 35%;
+  display: block;
+  margin: auto;
+}

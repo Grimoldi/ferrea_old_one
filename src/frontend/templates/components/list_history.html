@@ -1,0 +1,40 @@
+
+{% load static %}
+{% url 'frontend:delete_reservation' as delete_reservation %}
+
+{% for book in history.history %}
+    <img src="{{ book.book.cover }}" class="book-cover" /><br />
+    Title: {{ book.book.title }}<br />
+    Author: {{ book.book.author.0 }}<br />
+
+    {% spaceless %}
+    {% if book.type == "reading" %}
+        {% if 'to_date' in book %}
+            <br />
+            <img class="book_status_icon" src="{% static "images/close_book.png" %}" /> 
+            <p>You read this book from {{ book.from_date}} to {{ book.to_date }}.</p>
+        {% else %}
+            <br />
+            <img class="book_status_icon" src="{% static "images/open_book.png" %}" /> 
+            <p>You are reading this book since {{ book.from_date }}.</p>
+        {% endif %}
+    {% else %}
+        <br />
+        <img class="book_status_icon" src="{% static "images/reserved.png" %}" /> 
+        <p>You reserved this book on {{ book.on_date }}.</p>
+        <div class="book_button" id="delete_reserve_button">
+            <span>
+                <a 
+                href="{{ delete_reservation }}" 
+                data-barcode="{{ book.barcode }}"
+                data-user="{{ user }}"
+                data-method="delete"
+                onClick="classInstance.MakeAction.call(classInstance, this); return false;"
+                ></a>
+            </span>
+
+        </div>
+    {% endif %}
+    {% endspaceless %}
+    <hr style="width:60%; margin-left:0px;" class="clear">
+{% endfor %}

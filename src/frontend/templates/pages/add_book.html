@@ -1,0 +1,25 @@
+{% extends "skeleton/menu_librarian.html" %}
+  
+{% block app %}
+    {% if form_isbn %}
+    <h3>Please insert isbn of the book in order to search for its data</h3>
+    <form action="/perform_book_lookup" method="post">
+        <div id="isbn-search-form-div">
+            {{ form_isbn }}
+            <input type="submit" value="Search">
+        </div>
+    </form>
+    {% endif %}
+
+    {% if form_book %}
+    <h3>Please verify the data</h3>
+    <p>Note that library is mandatory. If you need, you can change data.</p>
+    <form action="/add_book_to_catalog" method="post">
+        <div id="isbn-add-form-div">
+            {{ form_book }}
+            <input type="submit" value="Add Book">
+        </div>
+    </form>
+    <img src="{{ cover }}" />
+    {% endif %}
+{% endblock %}

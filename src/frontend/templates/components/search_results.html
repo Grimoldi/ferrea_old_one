@@ -1,0 +1,88 @@
+
+<h3>Result of your search</h3>
+<table>
+  {% for book in book_list.books %}
+  <tr>
+    <td valign="top">
+      <img class="book-cover" src="{{ book.cover}}" /> <br />
+    </td>
+    <td valign="top" colspan="2">
+      <div class="book_button" id="detail_me_button">
+        <span>
+            <a href="{% url 'frontend:details' book.isbn %}" data-barcode="{{ book.barcode }}"></a>
+        </span>
+      </div>
+
+      {% spaceless %}
+      <div class="
+        {% if book.readable %}
+        book_button
+        {% else %}
+        book_button_disabled
+        {% endif %}
+        " id="read_me_button">
+        <span><a 
+            href="{{ read_book }}" 
+            data-barcode="{{ book.barcode }}"
+            data-user="{{ user }}"
+            data-method="post"
+            onClick="classInstance.MakeAction.call(classInstance, this); return false;"
+            ></a>
+        </span>
+      </div>
+
+      <div class="
+        {% if book.reservable %}
+        book_button
+        {% else %}
+        book_button_disabled
+        {% endif %}
+        " id="reserve_me_button">
+        <span><a 
+          href="{{ reserve_book }}" 
+          data-barcode="{{ book.barcode }}"
+          data-user="{{ user }}"
+          data-method="post"
+          onClick="classInstance.MakeAction.call(classInstance, this); return false;"
+          ></a>
+        </span>
+      </div>
+
+      {% endspaceless %}
+    </td>
+  </tr>
+  <tr>
+    <td>
+      Title: {{ book.title }}<br />
+      Author: {{ book.author.0 }}<br />
+      Saga: {{ book.series }}<br />
+      Distance: {{ book.distance }} m<br />
+      Library: {{ book.library }}<br />
+      Publisher: {{ book.publishing }}<br />
+      Isbn: {{ book.isbn }}<br />
+      Barcode: {{ book.barcode }}<br />
+
+      {% comment "For debug only" %}
+      Readable:
+      {% spaceless %}
+        {% if book.readable %}
+          <span style="color: green">
+        {% else %}
+          <span style="color:red">
+        {% endif %}
+        {{ book.readable }}</span>
+      {% endspaceless %}<br />
+      Reservable:
+      {% spaceless %}
+        {% if book.reservable %}
+          <span style="color: green">
+        {% else %}
+          <span style="color:red">
+        {% endif %}
+        {{ book.reservable }}</span>
+      {% endspaceless %}<br />
+      {% endcomment %}
+    </td>
+  </tr>
+  {% endfor %}
+</table>

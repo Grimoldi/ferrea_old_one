@@ -1,0 +1,15 @@
+
+<h3>Suggested books</h3>
+<table>
+    <tr>
+        {% for book in sugg_books.suggested_books %}
+        <td>
+        <a href="{% url 'frontend:details' book.isbn %}">
+            <img class="book-cover" src="{{ book.cover}}" />
+        </a><br />
+        Author: <br />{{ book.author.0 }} <br />
+        Title: <br />{{ book.title }}
+        </td>
+        {% endfor %}
+    </tr>
+</table>

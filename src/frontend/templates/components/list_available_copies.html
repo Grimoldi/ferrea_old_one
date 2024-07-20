@@ -1,0 +1,42 @@
+
+{% for copy in book.copy_detail %}
+    Library: {{ copy.library_name }}<br />
+    Address: {{ copy.library_address }}<br />
+    Phone: {{ copy.library_phone }}<br />
+    {% spaceless %}
+        <div class="
+        {% if copy.is_readable %}
+        book_button
+        {% else %}
+        book_button_disabled
+        {% endif %}
+        " id="read_me_button" style="float: left; margin-right:10px;">
+        <span><a 
+        href="{{ read_book }}" 
+        data-barcode="{{ copy.barcode }}"
+        data-user="{{ user }}"
+        data-method="post"
+        onClick="classInstance.MakeAction.call(classInstance, this); return false;"
+        ></a>
+        </span>
+
+        </div><div class="
+        {% if copy.is_reservable %}
+        book_button
+        {% else %}
+        book_button_disabled
+        {% endif %}
+        " id="reserve_me_button" style="float: left; margin-right:10px;">
+        <span><a 
+            href="{{ reserve_book }}" 
+            data-barcode="{{ copy.barcode }}"
+            data-user="{{ user }}"
+            data-method="post"
+            onClick="classInstance.MakeAction.call(classInstance, this); return false;"
+            ></a>
+        </span>
+        </div>
+        <div class="clear"></div>
+    {% endspaceless %}
+    <hr style="width:60%; margin-left:0px;">
+{% endfor %}

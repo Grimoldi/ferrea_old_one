@@ -1,0 +1,14 @@
+{% extends "skeleton/menu_enduser.html" %}
+  
+  {% block contents %}
+    <div id="login-form-div">
+      <form action="/ask_auth" method="post">
+        
+        {{ form }}
+        {{password.label|linebreaks}} 
+        <input type="submit" value="Login">
+      </form>
+      {% include "components/messages.html" %}
+    </div>
+
+  {% endblock %}

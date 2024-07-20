@@ -1,0 +1,17 @@
+{% extends "skeleton/menu_enduser.html" %}
+  
+{% block app %}
+
+    <div id="random_books">
+      {% include "components/random_books.html" %}
+    </div><br /><br />
+
+    <div id="suggested_books">
+      {% include "components/suggested_books.html" %}
+    </div><br /><br />
+
+    <div id="suggested_authors">
+      {% include "components/suggested_authors.html" %}
+    </div>
+
+{% endblock %}

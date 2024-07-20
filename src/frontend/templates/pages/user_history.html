@@ -1,0 +1,15 @@
+{% extends "skeleton/menu_enduser.html" %}
+  
+  {% block app %}
+
+    {% if history is not None %}
+      <div id="show-history-div">
+        
+        {% include "components/messages.html" %}
+        
+        {% include "components/list_history.html" %}
+
+      </div>
+    {% endif %}
+
+  {% endblock %}

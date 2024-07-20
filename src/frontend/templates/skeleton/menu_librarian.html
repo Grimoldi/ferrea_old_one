@@ -1,0 +1,39 @@
+
+{% extends "skeleton/base.html" %}
+{% load static %}
+
+{% block contents %}
+{% url 'frontend:librarian' as home_url %}
+{% url 'frontend:add_new_book' as new_book_url %}
+{% url 'frontend:list_lends' as lends_url %}
+{% url 'frontend:logout' as logout_url %}
+
+    <div id="menu">
+        <ul>
+            {% spaceless %}
+            <li>
+                <img class="menu-li-portrait" src="{% static "images/home.png" %}" /> 
+                <a href="{{ home_url }}">Home</a>
+            </li>
+            <li>
+                <img class="menu-li-portrait" src="{% static "images/add.png" %}" /> 
+                <a href="{{ new_book_url }}">Add a New Book</a>
+            </li>
+            <li>
+                <img class="menu-li-portrait" src="{% static "images/return.png" %}" /> 
+                <a href="{{ lends_url }}">List all lends</a>
+            </li>
+            <li>
+                <img class="menu-li-portrait" src="{% static "images/logout.png" %}" /> 
+                <a href="{{ logout_url }}">Logout</a>
+            </li>
+            {% endspaceless %}
+        </ul>
+    </div>
+
+    <div id="app">
+        {% include "components/messages.html" %}
+        {% block app %}
+        {% endblock %}
+    </div>
+{% endblock %}

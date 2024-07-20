@@ -1,0 +1,23 @@
+{% extends "skeleton/menu_enduser.html" %}
+  
+  {% block app %}
+    {% url 'frontend:read' as read_book %}
+    {% url 'frontend:reserve' as reserve_book %}
+
+
+    <div id="search-form-div">
+
+      <form action="/perform_search" method="post">
+          {{ form }}
+        <input type="submit" value="Search">
+      </form>
+      {% include "components/messages.html" %}
+    </div>
+
+    {% if book_list is not None %}
+      <div id="book_search_result">
+        {% include "components/search_results.html" %}
+      </div>
+    {% endif %}
+
+  {% endblock %}
